@@ -1,5 +1,7 @@
-<h1>Welcome to the Home page</h1>
+<div class="container" id="home_container">
+  <%= render 'pages/jumbo' %>
 
-<br/>
-<%= link_to 'Articles', articles_path %> |
-<%= link_to 'About', about_path %>
+  <br/>
+  <%= link_to 'Winelist', articles_path, class: "btn btn-outline-success" %>
+  <%= link_to 'About', about_path, class: "btn btn-outline-success" %>
+</div>

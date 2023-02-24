@@ -52,11 +52,11 @@ class ArticlesController < ApplicationController
   end
 
   def flash_success
-    flash[:notice] = "Article was created successfully."
+    flash[:success] = "Article was created successfully."
   end
 
   def flash_failure
-    flash[:alert] = "Article can't be created."
+    flash[:fail] = "Article can't be created."
   end
 
 end

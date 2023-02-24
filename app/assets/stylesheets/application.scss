@@ -6,4 +6,66 @@
   color: white !important;
 }
 
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: black;
+}
+
+#home_card {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 500px;
+  color: white;
+  background-image: asset-url(zan-WrueFKpTlQs-unsplash);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#home_card_title {
+  font-size: 50px;
+}
+
+#home_container {
+  margin-top: 25px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+#card_winelist {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 300px;
+}
+
+#card_header_winelist {
+  color: white;
+  background-color: green;
+}
+
+#form_label_wine_edit {
+  font-weight: bold;
+}
+
 @import "bootstrap";

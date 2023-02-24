@@ -1,24 +1,18 @@
-<% if @article.errors.any? %>
-  <h2>The following errors prevented the article from being saved</h2>
-  <ul>  
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %> 
-  </ul>
-<% end %>
+<%= render 'shared/errors' %>
 
 <%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
+
+  <div class="mb-3">
+    <label class="form-label" id="form_label_wine_edit">Wein Name</label>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" id="form_label_wine_edit">Beschreibung des Weines</label>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
 
   <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit %>
+    <%= f.submit "Wein anpassen", class: "btn btn-outline-success" %>
   </p>
 <% end %>
