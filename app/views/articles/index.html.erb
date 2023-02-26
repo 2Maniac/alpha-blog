@@ -1,28 +1,33 @@
-<div class="container">
-  <h1 class="text-center">Jessi's Lieblingsweine</h1>
-  <br/>
+<h1 class="text-center mt-4">Listing all articles</h1>
+  <div class="container">
     <body>
       <% @articles.each do |articles| %>
-      <div class="card text-center" id="card_winelist">
-        <h3 class="card-header" id="card_header_winelist">
-          <%= articles.title %>
-        </h3>
-        <div class="card-body">
-          <p class="card-text"><%= articles.description %></p>
-          <small>Created <%= time_ago_in_words(articles.created_at) %> ago, updated <%= time_ago_in_words(articles.updated_at) %> ago</small>
-        </div>
-        <div class="card-footer text-muted">
-          <%= link_to 'Mehr...', article_path(articles), class: "btn btn-outline-success" %>
-          <%= link_to 'Bearbeiten', edit_article_path(articles), class: "btn btn-outline-success" %>
-          <%= link_to 'Löschen', article_path(articles), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-success" %>
+      <div class="row justify-content-md-center">
+      <div class="col-6 mt-4">
+        <div class="card text-center shadow mb-5 bg-body-tertiary rounded">
+          <h3 class="card-header">
+            <%= link_to articles.title, article_path(articles), class: "text-success", id: "link_to_article" %>
+          </h3>
+          <div class="card-body">
+            <p class="card-text"><%= truncate(articles.description, length: 100) %></p>
+            <div class="container">
+              <%= link_to 'Show', article_path(articles), class: "btn btn-outline-success mt-4" %>
+              <%= link_to 'Edit', edit_article_path(articles), class: "btn btn-outline-info mt-4" %>
+              <%= link_to 'Delete', article_path(articles), data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete?" }, class: "btn btn-outline-danger mt-4" %>
+            </div>
+            <div class="mt-4">
+              <small class="fst-italic">Created <%= time_ago_in_words(articles.created_at) %> ago, updated <%= time_ago_in_words(articles.updated_at) %> ago</small>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            by <%= articles.user.username if articles.user %>
+          </div>
         </div>
       </div>
-      <br/>
+      </div>
       <% end %>
     </body>
-
-  <br/>
-  <%= link_to 'Neuer Wein', new_article_path, class: "btn btn-outline-success" %>
-  <%= link_to 'Home', root_path, class: "btn btn-outline-success" %>
-  <%= link_to 'About', about_path, class: "btn btn-outline-success" %>
-</div>
+    <%= link_to 'New article', new_article_path, class: "btn btn-outline-success" %>
+    <%= link_to 'Home', root_path, class: "btn btn-outline-success" %>
+    <%= link_to 'About', about_path, class: "btn btn-outline-success" %>
+</div>  

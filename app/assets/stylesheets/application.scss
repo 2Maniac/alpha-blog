@@ -25,7 +25,7 @@
   width: 100%;
   height: 500px;
   color: white;
-  background-image: asset-url(zan-WrueFKpTlQs-unsplash);
+  background-image: asset-url(home_image);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,20 +52,8 @@ body {
   flex-shrink: none;
 }
 
-#card_winelist {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  height: 300px;
-}
-
-#card_header_winelist {
-  color: white;
-  background-color: green;
-}
-
-#form_label_wine_edit {
-  font-weight: bold;
+#link_to_article {
+  text-decoration: none; 
 }
 
 @import "bootstrap";
