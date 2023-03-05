@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="text-center mt-4 mb-4">Login</h1>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <%= form_with(scope: :session, url: login_path, class: "shadow p-3 mb-5 bg-body-tertiary rounded", local: true) do |f| %>
+          <form>
+
+            <div class="row mb-3">
+              <%= f.label :email, class: "fw-bold col-sm-2 col-form-label" %>
+              <div class="col-sm-10">
+                <%= f.email_field :email, rows: 10, class: "form-control", placeholder: "Enter your email-adress" %>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <%= f.label :password, class: "fw-bold col-sm-2 col-form-label" %>
+              <div class="col-sm-10">
+                <%= f.password_field :password, rows: 10, class: "form-control", placeholder: "Enter your password" %>
+              </div>
+            </div>
+
+            <p>
+              <%= f.submit "Log in", class: "btn btn-outline-success" %>
+            </p>
+
+          </form>
+        <% end %>
+        <%= link_to 'Back', articles_path, class: "btn btn-outline-success mb-4" %>
+      </div>
+    </div>
+  </div>
+
+</div>
