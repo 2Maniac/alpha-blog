@@ -6,6 +6,9 @@
         <div class="card text-center shadow mb-5 bg-body-tertiary rounded">
           <h3 class="card-header">
             <%= link_to articles.title, article_path(articles), class: "text-success", id: "link_to_article" %>
+            <% if articles.categories.any? %>
+              <div class="mt-2"><%= render articles.categories %></div>
+            <% end %>
           </h3>
           <div class="card-body">
             <p class="card-text"><%= truncate(articles.description, length: 100) %></p>

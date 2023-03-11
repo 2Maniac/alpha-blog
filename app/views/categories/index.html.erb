@@ -1,0 +1,36 @@
+<h1 class="text-center mt-4">Listing all categories</h1>
+
+<div class="flickr_pagination">
+  <%= will_paginate @categories, :container => false %>
+</div>
+
+<div class="container">
+    <body>
+      <% @categories.each do |category| %>
+      <div class="row justify-content-md-center">
+      <div class="col-4 mt-4">
+        <div class="card text-center shadow mb-5 bg-body-tertiary rounded">
+          <h3 class="card-header">
+            <%= link_to category.name, category_path(category), class: "text-success", id: "link_to_article" %>
+          </h3>
+          <div class="card-body">
+            <div class="mt-2">
+              <p class="card-text"><%= pluralize(category.articles.count, "article") %></p>
+            </div> 
+            <div class="mt-4">
+              <small class="fst-italic">Created <%= time_ago_in_words(category.created_at) %> ago, updated <%= time_ago_in_words(category.updated_at) %> ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <% end %>
+    </body>
+    <%= link_to 'New article', new_article_path, class: "btn btn-outline-success" %>
+    <%= link_to 'Home', root_path, class: "btn btn-outline-success" %>
+    <%= link_to 'About', about_path, class: "btn btn-outline-success" %>
+</div>  
+
+<div class="flickr_pagination">
+  <%= will_paginate @categories, :container => false %>
+</div>
